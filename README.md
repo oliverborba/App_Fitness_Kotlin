@@ -2,7 +2,7 @@
 
 Curso Android Express, professor Tiago Andrade.
 
-Criação de App Fitness
+Criação de App Fitness, com Kotlin
 
 1 - Criação da estrutuda da tela
 
