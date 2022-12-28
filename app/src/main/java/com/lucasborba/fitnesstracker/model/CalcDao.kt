@@ -1,8 +1,6 @@
 package com.lucasborba.fitnesstracker.model
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface CalcDao {
@@ -12,4 +10,11 @@ interface CalcDao {
 
     @Query("SELECT * FROM Calc WHERE type = :type")
     fun getRegisterByType(type: String): List<Calc>
+
+    //Estudar como implementar
+    @Delete
+    fun delete(calc: Calc): Int // FIXME: retorna 1 se deu sucesso
+
+    @Update
+    fun update(calc: Calc)
 }

@@ -7,6 +7,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -57,9 +59,7 @@ class ImcActivity : AppCompatActivity() {
                         dao.insert(Calc(type = "imc", res = result))
 
                         runOnUiThread {
-                            val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
-                            intent.putExtra("type", "imc")
-                            startActivity(intent)
+                            openListActivity()
                         }
                     }.start()
 
@@ -85,6 +85,25 @@ class ImcActivity : AppCompatActivity() {
 //            val d = dialog.create()
 //            d.show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_search) {
+            finish()
+            openListActivity()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun openListActivity() {
+        val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
+        intent.putExtra("type", "imc")
+        startActivity(intent)
     }
 
     @StringRes
