@@ -14,4 +14,4 @@ Criação de App Fitness, com Kotlin
 
 5 - Atualizando/Deletando dados
 
-//Necessário ajustes de laytout
+### Necessário melhoras na interface
